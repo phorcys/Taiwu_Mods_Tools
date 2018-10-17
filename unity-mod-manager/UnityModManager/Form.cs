@@ -223,7 +223,7 @@ namespace UnityModManagerNet.Installer
             {
                 byte[] fd = System.IO.File.ReadAllBytes(assfile);
 
-                    fd = Xxtea.XXTEA.Decrypt(fd, System.Text.Encoding.ASCII.GetBytes("43062619851001801xshipzheng12a8294639u5238798jie1986929conch"));
+                    fd = Xxtea.XXTEA.Decrypt(fd, Xxtea.nhelper.dd("E93125554AC396980E3F3F57F70BE8CAADF3E9F7BCC7BC56DF8E124F06A20DEC850A631886F98A4E08CB976A52017EA33F1187563439BA19D7D77520EF4FD9C5"));
                     System.IO.File.WriteAllBytes(de_assfile, fd);
                     Log.Print($"'{selectedGame.AssemblyName}' unpacked.");
                 return true;

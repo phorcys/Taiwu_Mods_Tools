@@ -7,14 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityModManager", "UnityMod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "Updater\Updater.csproj", "{0EEC949D-BF5C-4F12-9743-0A635ABC8DE4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mods", "Mods", "{99976E08-21C1-431C-9DDB-3EAF4EBA4E48}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorySort", "mods\InventorySort\InventorySort.csproj", "{60C9A615-9712-426F-B076-3F6AAADECB4F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageCheck", "mods\StorageCheck\StorageCheck.csproj", "{FB91DC60-974D-414B-8E69-2EB67A2D3ABB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseStorageBlueprint", "mods\UseStorageBlueprint\UseStorageBlueprint.csproj", "{7C278211-7A80-45AD-BA5C-C3AB6A680497}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,26 +21,9 @@ Global
 		{0EEC949D-BF5C-4F12-9743-0A635ABC8DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EEC949D-BF5C-4F12-9743-0A635ABC8DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EEC949D-BF5C-4F12-9743-0A635ABC8DE4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{60C9A615-9712-426F-B076-3F6AAADECB4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{60C9A615-9712-426F-B076-3F6AAADECB4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{60C9A615-9712-426F-B076-3F6AAADECB4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{60C9A615-9712-426F-B076-3F6AAADECB4F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FB91DC60-974D-414B-8E69-2EB67A2D3ABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB91DC60-974D-414B-8E69-2EB67A2D3ABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB91DC60-974D-414B-8E69-2EB67A2D3ABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB91DC60-974D-414B-8E69-2EB67A2D3ABB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C278211-7A80-45AD-BA5C-C3AB6A680497}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C278211-7A80-45AD-BA5C-C3AB6A680497}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C278211-7A80-45AD-BA5C-C3AB6A680497}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C278211-7A80-45AD-BA5C-C3AB6A680497}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{60C9A615-9712-426F-B076-3F6AAADECB4F} = {99976E08-21C1-431C-9DDB-3EAF4EBA4E48}
-		{FB91DC60-974D-414B-8E69-2EB67A2D3ABB} = {99976E08-21C1-431C-9DDB-3EAF4EBA4E48}
-		{7C278211-7A80-45AD-BA5C-C3AB6A680497} = {99976E08-21C1-431C-9DDB-3EAF4EBA4E48}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {54BB4446-73FC-42FA-AFD4-C64AC3028652}
