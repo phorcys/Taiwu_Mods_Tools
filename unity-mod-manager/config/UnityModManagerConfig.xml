@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <GameInfo Name="Oxygen Not Included">
+    <Folder>OxygenNotIncluded</Folder>
+    <ModsDirectory>Mods</ModsDirectory>
+    <ModInfo>Info.json</ModInfo>
+    <AssemblyName>Assembly-CSharp-firstpass.dll</AssemblyName>
+    <PatchTarget>App.Awake:After</PatchTarget>
+  </GameInfo>
+  <GameInfo Name="Subnautica">
+    <Folder>Subnautica</Folder>
+    <ModsDirectory>Mods</ModsDirectory>
+    <ModInfo>Info.json</ModInfo>
+    <AssemblyName>Assembly-CSharp.dll</AssemblyName>
+    <PatchTarget>MainMenuController.Start:After</PatchTarget>
+  </GameInfo>
+  <GameInfo Name="Motorsport Manager">
+    <Folder>Motorsport Manager</Folder>
+    <ModsDirectory>Mods</ModsDirectory>
+    <ModInfo>Info.json</ModInfo>
+    <AssemblyName>Assembly-CSharp.dll</AssemblyName>
+    <PatchTarget>App.Awake:After</PatchTarget>
+  </GameInfo>
+  <GameInfo Name="Two Point Hospital">
+    <Folder>TPH</Folder>
+    <ModsDirectory>Mods</ModsDirectory>
+    <ModInfo>Info.json</ModInfo>
+    <AssemblyName>Assembly-CSharp.dll</AssemblyName>
+    <PatchTarget>TH20.MainScript.Start:Before</PatchTarget>
+  </GameInfo>
+  <GameInfo Name="The Scroll Of Taiwu">
+    <Folder>The Scroll Of Taiwu</Folder>
+    <ModsDirectory>Mods</ModsDirectory>
+    <ModInfo>Info.json</ModInfo>
+    <AssemblyName>Assembly-CSharp.dll</AssemblyName>
+    <PatchTarget>DateFile.Awake:Before</PatchTarget>
+  </GameInfo>  
+</Config>

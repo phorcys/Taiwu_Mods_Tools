@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Param xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <GamePaths>
+    <GamePath Name="The Scroll Of Taiwu">
+      <Path>C:\Program Files (x86)\Steam\steamapps\common\The Scroll Of Taiwu</Path>
+    </GamePath>
+  </GamePaths>
+</Param>
