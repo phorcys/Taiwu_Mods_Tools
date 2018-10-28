@@ -223,7 +223,7 @@ namespace UnityModManagerNet.Installer
             {
                 byte[] fd = System.IO.File.ReadAllBytes(assfile);
 
-                    fd = Xxtea.XXTEA.Decrypt(fd, Xxtea.nhelper.dd("E93125554AC396980E3F3F57F70BE8CAADF3E9F7BCC7BC56DF8E124F06A20DEC850A631886F98A4E08CB976A52017EA33F1187563439BA19D7D77520EF4FD9C5"));
+                    fd = Xxtea.XXTEA.Decrypt(fd, Xxtea.nhelper.dd("B0F575250D7D35F4BE1A0B4627C732FEAB43F5FB102C637C0D0FA2311913C8E36812DDFAC9CB0F65112461542A5DFE9BFEC59B6C3890E5296BBCBE4858E3AE687FECC73963D06BD1043DDEB4AE5B6037"));
                     System.IO.File.WriteAllBytes(de_assfile, fd);
                     Log.Print($"'{selectedGame.AssemblyName}' unpacked.");
                 return true;
@@ -237,7 +237,7 @@ namespace UnityModManagerNet.Installer
             {
                 byte[] fd = System.IO.File.ReadAllBytes(assfile);
 
-                fd = Xxtea.XXTEA.Encrypt(fd, Xxtea.nhelper.dd("E93125554AC396980E3F3F57F70BE8CAADF3E9F7BCC7BC56DF8E124F06A20DEC850A631886F98A4E08CB976A52017EA33F1187563439BA19D7D77520EF4FD9C5"));
+                fd = Xxtea.XXTEA.Encrypt(fd, Xxtea.nhelper.dd("B0F575250D7D35F4BE1A0B4627C732FEAB43F5FB102C637C0D0FA2311913C8E36812DDFAC9CB0F65112461542A5DFE9BFEC59B6C3890E5296BBCBE4858E3AE687FECC73963D06BD1043DDEB4AE5B6037"));
                 System.IO.File.WriteAllBytes(en_assfile, fd);
                 Log.Print($"'{selectedGame.AssemblyName}' packed.");
                 return true;
