@@ -42,7 +42,7 @@ namespace UnityModManagerNet.Installer
             var modManagerType = typeof(UnityModManager);
             var modManagerDef = ModuleDefMD.Load(modManagerType.Module);
             var modManager = modManagerDef.Types.First(x => x.Name == modManagerType.Name);
-            var versionString = modManager.Fields.First(x => x.Name == nameof(UnityModManager.version)).Constant.Value.ToString();
+            var versionString = UnityModManager.version;
             currentVersion.Text = versionString;
             version = Utils.ParseVersion(versionString);
 
@@ -193,7 +193,7 @@ namespace UnityModManagerNet.Installer
                 btnInstall.Enabled = false;
                 btnRemove.Enabled = true;
 
-                var versionString = modManagerDefInjected.Fields.First(x => x.Name == nameof(UnityModManager.version)).Constant.Value.ToString();
+                var versionString = UnityModManager.version;
                 var version2 = Utils.ParseVersion(versionString);
                 installedVersion.Text = versionString;
                 if (version != version2)
