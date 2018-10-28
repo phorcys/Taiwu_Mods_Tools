@@ -193,7 +193,7 @@ namespace UnityModManagerNet.Installer
                 btnInstall.Enabled = false;
                 btnRemove.Enabled = true;
 
-                var versionString = modManagerDefInjected.Fields.First(x => x.Name == nameof(UnityModManager.version)).Constant.Value.ToString();
+                var versionString = UnityModManager.version;
                 var version2 = Utils.ParseVersion(versionString);
                 installedVersion.Text = versionString;
                 if (version != version2)
