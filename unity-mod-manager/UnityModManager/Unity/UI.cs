@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -50,7 +50,7 @@ namespace UnityModManagerNet
 
             private bool mOpened = false;
 
-            private float mWindowWidth = 960f;
+            private float mWindowWidth = 1440f;
             private Rect mWindowRect = new Rect(0, 0, 0, 0);
 
             private void Awake()
@@ -189,7 +189,14 @@ namespace UnityModManagerNet
                     var color = GUI.color;
                     GUI.backgroundColor = Color.white;
                     GUI.color = Color.white;
-                    mWindowRect = GUILayout.Window(0, mWindowRect, WindowFunction, "", window, GUILayout.Height(Screen.height - 200));
+
+                    Matrix4x4 svMat = GUI.matrix;
+                    Vector2 resizeRatio = new Vector2((float)Screen.width / (mWindowWidth + 70f), (float)Screen.height / (960f + 40f));
+                    GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, new Vector3(resizeRatio.x, resizeRatio.y, 1.0f));
+
+                    mWindowRect = GUILayout.Window(0, mWindowRect, WindowFunction, "", window, GUILayout.Height(960f));
+
+                    GUI.matrix = svMat;
                     GUI.backgroundColor = backgroundColor;
                     GUI.color = color;
                 }
@@ -224,7 +231,8 @@ namespace UnityModManagerNet
 
             private void CalculateWindowPos()
             {
-                mWindowRect = new Rect((Screen.width - mWindowWidth) / 2f, 100f, 0, 0);
+                //mWindowRect = new Rect((Screen.width - mWindowWidth) / 2f, 30f, 0, 0);
+                mWindowRect = new Rect(30f, 20f, 0, 0);
             }
 
             private void WindowFunction(int windowId)
@@ -416,31 +424,31 @@ namespace UnityModManagerNet
                             GUILayout.Space(10);
                             GUILayout.Box(Textures.SettingsNormal, settings);
                             GUILayout.Space(3);
-                            GUILayout.Label("Options", GUILayout.ExpandWidth(false));
+                            GUILayout.Label("Options", GUILayout.ExpandWidth(true));
                             GUILayout.Space(15);
                             GUILayout.Box(Textures.WWW, www);
                             GUILayout.Space(3);
-                            GUILayout.Label("Home page", GUILayout.ExpandWidth(false));
+                            GUILayout.Label("Home page", GUILayout.ExpandWidth(true));
                             GUILayout.Space(15);
                             GUILayout.Box(Textures.Updates, updates);
                             GUILayout.Space(3);
-                            GUILayout.Label("Available update", GUILayout.ExpandWidth(false));
+                            GUILayout.Label("Available update", GUILayout.ExpandWidth(true));
                             GUILayout.Space(15);
                             GUILayout.Box(Textures.StatusActive, status);
                             GUILayout.Space(3);
-                            GUILayout.Label("Active", GUILayout.ExpandWidth(false));
+                            GUILayout.Label("Active", GUILayout.ExpandWidth(true));
                             GUILayout.Space(10);
                             GUILayout.Box(Textures.StatusInactive, status);
                             GUILayout.Space(3);
-                            GUILayout.Label("Inactive", GUILayout.ExpandWidth(false));
+                            GUILayout.Label("Inactive", GUILayout.ExpandWidth(true));
                             GUILayout.Space(10);
                             GUILayout.Box(Textures.StatusNeedRestart, status);
                             GUILayout.Space(3);
-                            GUILayout.Label("Need restart", GUILayout.ExpandWidth(false));
+                            GUILayout.Label("Need restart", GUILayout.ExpandWidth(true));
                             GUILayout.Space(10);
                             GUILayout.Label("[CTRL + LClick]", bold, GUILayout.ExpandWidth(false));
                             GUILayout.Space(3);
-                            GUILayout.Label("Drag window", GUILayout.ExpandWidth(false));
+                            GUILayout.Label("Drag window", GUILayout.ExpandWidth(true));
                             //                        GUILayout.Space(10);
                             //                        GUI.color = new Color32(255, 81, 83, 255);
                             //                        GUILayout.Label("*", bold, GUILayout.ExpandWidth(false));
