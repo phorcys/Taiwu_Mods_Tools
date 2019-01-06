@@ -540,6 +540,8 @@ namespace UnityModManagerNet
             Console.WriteLine();
             Logger.Log($"Version '{version}'. Initialize.");
 
+            var mods = new Dictionary<string, ModEntry>();
+
             if (Directory.Exists(modsPath))
             {
                 Logger.Log($"Parsing mods.");
@@ -561,7 +563,7 @@ namespace UnityModManagerNet
                                 Logger.Error($"Id is null.");
                                 continue;
                             }
-                            if (modEntries.Exists(x => x.Info.Id == modInfo.Id))
+                            if (mods.ContainsKey(modInfo.Id))
                             {
                                 Logger.Error($"Id '{modInfo.Id}' already uses another mod.");
                                 continue;
@@ -570,7 +572,7 @@ namespace UnityModManagerNet
                                 modInfo.AssemblyName = modInfo.Id + ".dll";
 
                             ModEntry modEntry = new ModEntry(modInfo, dir + Path.DirectorySeparatorChar);
-                            modEntries.Add(modEntry);
+                            mods.Add(modInfo.Id, modEntry);
                         }
                         catch (Exception exception)
                         {
@@ -584,10 +586,10 @@ namespace UnityModManagerNet
                     }
                 }
 
-                if (modEntries.Count > 0)
+                if (mods.Count > 0)
                 {
                     Logger.Log($"Sorting mods.");
-                    modEntries.Sort(Compare);
+                    TopoSort(mods);
 
                     mParams = Param.Load();
 
@@ -615,19 +617,25 @@ namespace UnityModManagerNet
             isStarted = true;
         }
 
-        private static int Compare(ModEntry x, ModEntry y)
+        private static void DFS(string id, Dictionary<string, ModEntry> mods)
         {
-            if (x.Requirements.Count > 0 && x.Requirements.ContainsKey(y.Info.Id))
+            if (modEntries.Any(m => m.Info.Id == id))
             {
-                return 1;
+                return;
             }
-
-            if (y.Requirements.Count > 0 && y.Requirements.ContainsKey(x.Info.Id))
+            foreach (var req in mods[id].Requirements.Keys)
             {
-                return -1;
+                DFS(req, mods);
             }
+            modEntries.Add(mods[id]);
+        }
 
-            return String.Compare(x.Info.Id, y.Info.Id, StringComparison.Ordinal);
+        private static void TopoSort(Dictionary<string, ModEntry> mods)
+        {
+            foreach (var id in mods.Keys)
+            {
+                DFS(id, mods);
+            }
         }
 
         public static ModEntry FindMod(string id)
